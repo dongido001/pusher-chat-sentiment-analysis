@@ -1,28 +1,82 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Login/>
+    <b-container>
+      <NavBar />
+      <b-row class="main-area">
+        <b-col cols="4" class="users">
+          <Users />
+        </b-col>
+        <b-col cols="8" class="messages-area">
+          <div class="messages-main">
+            <div 
+              v-if="!current_chat_channel" 
+              class="select-chat text-center"
+            >
+              Select a user to start chatting...
+            </div>
+            <Messages /> 
+          </div>
+          <MessageInput />
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MessageInput from "./components/MessageInput.vue";
+import Messages from "./components/Messages.vue";
+import NavBar from "./components/NavBar.vue";
+import Login from "./components/Login.vue";
+import Users from "./components/Users.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
-  }
-}
+    MessageInput,
+    NavBar,
+    Messages,
+    Users,
+    Login
+  },
+};
 </script>
 
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.messages-main {
+  overflow-y: scroll;
+  height: 90%;
+}
+.users {
+  padding: 0px !important;
+  border: 1px solid gray;
+}
+.no-margin {
+  margin: 0px;
+}
+.messages-area {
+  border: 1px solid gray;
+  padding: 0px !important;
+  max-height: calc(100vh - 4em) !important;
+}
+.input-message {
+  height: 40px;
+}
+.active {
+  background: #17a2b8 !important;
+  border: #17a2b8 !important;
+}
+.select-chat {
+  margin-top: 35vh;
+  padding: 8px;
+}
+.main-area {
+  margin: 0px;
+  min-height: calc(100vh - 5em) !important;
+}
+.logged_user {
+  color: white;
 }
 </style>
