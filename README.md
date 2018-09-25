@@ -1,6 +1,6 @@
-# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 1
+# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 2
 
-This is the part 1 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
+This is the part 2 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
 
 ## Getting Started
 
@@ -19,55 +19,64 @@ This application uses the following:
 First, clone this repository to your local machine:
 
 ```sh
- $ git clone https://github.com/dongido001/pusher-chat-sentiment-analysis.git -b part-1
+ $ git clone https://github.com/dongido001/pusher-chat-sentiment-analysis.git -b part-2
 ```
 
- Next, update the following keys in the `.env` file with your correct Pusher keys:
-  ```
-  PUSHER_APP_ID=app_id
-  PUSHER_KEY=key
-  PUSHER_SECRET=secret
-  PUSHER_CLUSTER=cluster
-  ```
+Next, update the following keys in the `.env` file with your correct Pusher keys:
+
+```
+PUSHER_APP_ID=app_id
+PUSHER_KEY=key
+PUSHER_SECRET=secret
+PUSHER_CLUSTER=cluster
+```
 
 ### Running the Apps
 
 #### Run the Flask app
 
- - CD to the Flask folder - api:
+- CD to the Flask folder - api:
+
 ```
     $ cd api
 ```
 
- - Create a virtual environment:
- ```
- python3 -m venv env
- ```
- - Activate the virtual environment:
- ```
-   source env/bin/activate
- ```
- On windows? Activate it with the below:
- ```
-   source env/Scripts/activate
- ```
+- Create a virtual environment:
 
- - Install the dependencies:
- ```
- pip install -r requirements.txt
- ```
+```
+python3 -m venv env
+```
 
- - Finally run the app:
- ```
-  flask run
- ```
+- Activate the virtual environment:
 
- Check the URL where Flask is running - [http://localhost:5000](http://localhost:5000). You will get a text "Pong!".
+```
+  source env/bin/activate
+```
+
+On windows? Activate it with the below:
+
+```
+  source env/Scripts/activate
+```
+
+- Install the dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+- Finally run the app:
+
+```
+ flask run
+```
+
+Check the URL where Flask is running - [http://localhost:5000](http://localhost:5000). You will get a text "Pong!".
 
 #### Run the Vue app
 
 Open a new terminal window, then cd into the projects root folder - `one-to-one chat`:
-    
+  
 Then run the app:
 
 ```
@@ -76,7 +85,6 @@ Then run the app:
 
 ## Built With
 
-* [Flask](http://flask.pocoo.org/) - A microframework for Python
-* [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
-* [Vue.js](https://vuejs.org/) - A JavaScript Framework for building User Interfaces
-
+- [Flask](http://flask.pocoo.org/) - A microframework for Python
+- [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
+- [Vue.js](https://vuejs.org/) - A JavaScript Framework for building User Interfaces
