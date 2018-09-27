@@ -25,11 +25,18 @@
 </template>
 
 <script>
+
 import MessageInput from "./components/MessageInput.vue";
 import Messages from "./components/Messages.vue";
 import NavBar from "./components/NavBar.vue";
 import Login from "./components/Login.vue";
 import Users from "./components/Users.vue";
+import Pusher from "pusher-js";
+
+var pusher = new Pusher("<PUSHER_KEY>", {
+  cluster: "<CLUSTER>",
+  authEndpoint: "/api/pusher/auth"
+});
 
 export default {
   name: "app",
@@ -40,6 +47,8 @@ export default {
     Users,
     Login
   },
+  data: {},
+  methods: {},
 };
 </script>
 
