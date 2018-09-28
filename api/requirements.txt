@@ -11,3 +11,4 @@ python-dotenv==0.8.2
 pusher==2.0.1
 SQLAlchemy==1.2.0
 Flask-SQLAlchemy==2.1
+textblob==0.15.1

@@ -1,6 +1,6 @@
-# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 2
+# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 3
 
-This is the part 2 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
+This is the part 3 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ This application uses the following:
 First, clone this repository to your local machine:
 
 ```sh
- $ git clone https://github.com/dongido001/pusher-chat-sentiment-analysis.git -b part-2
+ $ git clone https://github.com/dongido001/pusher-chat-sentiment-analysis.git
 ```
 
 Next, update the following keys in the `.env` file with your correct Pusher keys:
@@ -30,6 +30,18 @@ PUSHER_KEY=key
 PUSHER_SECRET=secret
 PUSHER_CLUSTER=cluster
 ```
+
+Then, goto `src/App.vue` and locate the below code:
+
+```
+var pusher = new Pusher("<PUSHER_KEY>", {
+  cluster: "<CLUSTER>",
+  authEndpoint: "/api/pusher/auth"
+});
+```
+
+Update `<PUSHER_KEY>` and `<CLUSTER>` with your correct Pusher key.
+
 
 ### Running the Apps
 
@@ -65,6 +77,11 @@ On windows? Activate it with the below:
 pip install -r requirements.txt
 ```
 
+
+- Download NLTK corpora:
+
+$ python -m textblob.download_corpora lite
+
 - Finally run the app:
 
 ```
@@ -77,6 +94,12 @@ Check the URL where Flask is running - [http://localhost:5000](http://localhost:
 
 Open a new terminal window, then cd into the projects root folder - `one-to-one chat`:
   
+Install dependencies:
+
+```
+npm install
+```
+
 Then run the app:
 
 ```

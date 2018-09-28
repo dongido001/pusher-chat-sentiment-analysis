@@ -36,8 +36,8 @@ import Login from "./components/Login.vue";
 import Users from "./components/Users.vue";
 import Pusher from "pusher-js";
 
-var pusher = new Pusher("458169", {
-  cluster: "eu",
+var pusher = new Pusher("<PUSHER_KEY>", {
+  cluster: "<CLUSTER>",
   authEndpoint: "/api/pusher/auth"
 });
 
