@@ -5,6 +5,7 @@
         <div class="chat-message col-md-5" 
           v-bind:class="[(message.from_user == active_chat) ? 'to-message' : 'from-message offset-md-7']">
           {{message.message}}
+          {{ getSentiment(message.sentiment.polarity) }}
         </div> 
     </div>
    </div>
@@ -12,12 +13,31 @@
 <script>
 export default {
   name: "Messages",
+  data() {
+    return {
+      happy: String.fromCodePoint(0x1f600),
+      neutral: String.fromCodePoint(0x1f610),
+      sad: String.fromCodePoint(0x1f61f)
+    };
+  },
+  methods: {
+    getSentiment(sentiment) {
+      if (sentiment > 0.5) {
+        return this.happy;
+      } else if (sentiment < 0.0) {
+        return this.sad;
+      } else {
+        return this.neutral;
+      }
+    }
+  },
   props: {
     messages: Array,
     active_chat: Number
   }
 };
 </script>
+
 <style>
 .from-message {
   background: #17a2b8;
