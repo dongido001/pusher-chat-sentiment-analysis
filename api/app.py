@@ -127,34 +127,11 @@ def request_chat():
 
     return jsonify(data)
 
-
 @app.route("/api/pusher/auth", methods=['POST'])
+@jwt_required
 def pusher_authentication():
     channel_name = request.form.get('channel_name')
     socket_id = request.form.get('socket_id')
-
-    """ Extract from_user and to_user from the channel name.
-        A channel name is in this format - "private-chat_1_2"
-    """
-    payload = channel_name.split("_")
-
-    # User is subscribing to the notification channel 
-    if payload[0] == "private-notification": 
-        pass
-    else: # To the one-to-one channel 
-        from_user = int(payload[1])
-        to_user = int(payload[2])
-
-        # The user must have had a channel
-        channel = Channel.query.filter(Channel.from_user.in_([from_user, to_user])) \
-                            .filter(Channel.to_user.in_([from_user, to_user])) \
-                            .count()
-                            
-        if not channel:
-            return jsonify({
-                "status": "error",
-                "message": "Authentication failed"
-            })
 
     auth = pusher.authenticate(
         channel=channel_name,
