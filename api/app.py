@@ -10,7 +10,6 @@ from database import db_session
 from models import User, Channel, Message
 
 import os
-import json
 import pusher
 from textblob import TextBlob
 
@@ -126,6 +125,7 @@ def request_chat():
     pusher.trigger(to_user_channel, 'new_chat', data)
 
     return jsonify(data)
+
 
 @app.route("/api/pusher/auth", methods=['POST'])
 @jwt_required

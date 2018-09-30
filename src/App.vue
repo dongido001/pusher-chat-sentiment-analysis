@@ -36,10 +36,7 @@ import Login from "./components/Login.vue";
 import Users from "./components/Users.vue";
 import Pusher from "pusher-js";
 
-var pusher = new Pusher("<PUSHER_KEY>", {
-  cluster: "<CLUSTER>",
-  authEndpoint: "/api/pusher/auth"
-});
+let pusher;
 
 export default {
   name: "app",
@@ -69,6 +66,17 @@ export default {
       this.logged_user_username = user_data.username;
       this.authenticated = login_status;
       this.token = user_data.token;
+
+      // Inintialize Pusher JavaScript library
+      pusher = new Pusher(process.env.VUE_APP_PUSHER_KEY, {
+        cluster: process.env.VUE_APP_PUSHER_CLUSTER,
+        authEndpoint: "/api/pusher/auth",
+        auth: {
+          headers: {
+            Authorization: "Bearer " + this.token
+          }
+        }
+      });
 
       // Get the users, not including the current logged in user
       const users = await axios.get("/api/users", {
