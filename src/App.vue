@@ -133,7 +133,7 @@ export default {
       });
 
       presenceChannel.bind("pusher:subscription_succeeded", data => {
-        // Fetch members already on this channel, then set to be online
+        // Fetch members already on this channel, then set them to be online
         for (let member_id of Object.keys(data.members)) {
           const index = this.users.findIndex(user => user.id == member_id);
           this.$set(this.users, index, {
