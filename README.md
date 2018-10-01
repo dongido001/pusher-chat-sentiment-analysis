@@ -1,4 +1,4 @@
-# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 3
+# Build a one-to-one private chat with sentiment analysis - Part 4: Adding who’s online feature
 
 This is the part 4 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
 
@@ -32,7 +32,6 @@ PUSHER_CLUSTER=cluster
 ```
 
 Then, update the `.env` file in the project’s root folder with your correct Pusher App key:
-
 
 ```
     VUE_APP_PUSHER_KEY=<PUSHER_APP_KEY>
@@ -73,7 +72,6 @@ On windows? Activate it with the below:
 pip install -r requirements.txt
 ```
 
-
 - Download NLTK corpora:
 
 $ python -m textblob.download_corpora lite
@@ -89,7 +87,7 @@ Check the URL where Flask is running - [http://localhost:5000](http://localhost:
 #### Run the Vue app
 
 Open a new terminal window, then cd into the projects root folder - `one-to-one chat`:
-  
+
 Install dependencies:
 
 ```
