@@ -1,6 +1,6 @@
 # One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 3
 
-This is the part 3 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
+This is the part 4 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ First, clone this repository to your local machine:
  $ git clone https://github.com/dongido001/pusher-chat-sentiment-analysis.git
 ```
 
-Next, update the following keys in the `.env` file with your correct Pusher keys:
+Next, update the following keys in the `api/.env` file with your correct Pusher keys:
 
 ```
 PUSHER_APP_ID=app_id
@@ -31,17 +31,13 @@ PUSHER_SECRET=secret
 PUSHER_CLUSTER=cluster
 ```
 
-Then, goto `src/App.vue` and locate the below code:
+Then, update the `.env` file in the project’s root folder with your correct Pusher App key:
+
 
 ```
-var pusher = new Pusher("<PUSHER_KEY>", {
-  cluster: "<CLUSTER>",
-  authEndpoint: "/api/pusher/auth"
-});
+    VUE_APP_PUSHER_KEY=<PUSHER_APP_KEY>
+    VUE_APP_PUSHER_CLUSTER=<PUSHER_APP_CLUSTER>
 ```
-
-Update `<PUSHER_KEY>` and `<CLUSTER>` with your correct Pusher key.
-
 
 ### Running the Apps
 
