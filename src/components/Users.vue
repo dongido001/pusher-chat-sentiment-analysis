@@ -7,6 +7,7 @@
         @click="chat(user.id)"
       >
         {{user.userName}}
+        <span v-if="user.is_online" class="online"></span>
       </div>
     </div>
   </div>
@@ -39,5 +40,15 @@ export default {
 .active {
   background: #17a2b8;
   color: white;
+}
+
+.online {
+  height: 15px;
+  width: 15px;
+  background-color: #17a2b8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: -4px;
+  border: 1px solid white;
 }
 </style>
