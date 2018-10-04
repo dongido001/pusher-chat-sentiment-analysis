@@ -156,13 +156,15 @@ export default {
             this.$set(this.messages, response.data.channel_name, []);
 
             channel.bind("new_message", data => {
-            
-              // If a user receives a message from a user they are 
+              // If a user receives a message from a user they are
               // not currently chatting with, alert them.
-              // You can make this more freindly by displaying a label 
-              // beside the user displaying the number of messages 
+              // You can make this more freindly by displaying a label
+              // beside the user displaying the number of messages
               // they haven't ready yet.
-              if (data.channel !== this.current_chat_channel) {
+              if (
+                data.channel !== this.current_chat_channel &&
+                data.to_user !== this.logged_user_id
+              ) {
                 const from_user = this.users.filter(
                   user => user.id == data.from_user
                 );
