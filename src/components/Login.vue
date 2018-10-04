@@ -38,6 +38,28 @@ export default {
       proccessing: false,
       message: ""
     };
+  },
+  methods: {
+    login: function() {
+      this.loading = true;
+      this.axios
+        .post("/api/login", {
+          username: this.username,
+          password: this.password
+        })
+        .then(response => {
+          if (response.data.status == "success") {
+            this.proccessing = false;
+            this.$emit("authenticated", true, response.data.data);
+          } else {
+            this.message = "Login Faild, try again";
+          }
+        })
+        .catch(error => {
+          this.message = "Login Faild, try again";
+          this.proccessing = false;
+        });
+    }
   }
 };
 </script>
