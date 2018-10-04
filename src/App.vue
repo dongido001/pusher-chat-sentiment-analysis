@@ -156,6 +156,19 @@ export default {
             this.$set(this.messages, response.data.channel_name, []);
 
             channel.bind("new_message", data => {
+            
+              // If a user receives a message from a user they are 
+              // not currently chatting with, alert them.
+              // You can make this more freindly by displaying a label 
+              // beside the user displaying the number of messages 
+              // they haven't ready yet.
+              if (data.channel !== this.current_chat_channel) {
+                const from_user = this.users.filter(
+                  user => user.id == data.from_user
+                );
+                alert(`${from_user[0]["userName"]} sent a message`);
+              }
+              
               this.messages[response.data.channel_name].push({
                 message: data.message,
                 sentiment: data.sentiment,
