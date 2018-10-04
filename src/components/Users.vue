@@ -7,6 +7,7 @@
       >
         {{user.userName}}
         <span v-if="user.has_new_message" class="has_new_message">New message</span>
+        <span v-if="user.is_online" class="online"></span>
       </div>
     </div>
   </div>
@@ -50,5 +51,15 @@ export default {
   margin: 4px;
   padding: 3px;
   font-weight: bolder;
+}
+
+.online {
+  height: 15px;
+  width: 15px;
+  background-color: #17a2b8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: -4px;
+  border: 1px solid white;
 }
 </style>

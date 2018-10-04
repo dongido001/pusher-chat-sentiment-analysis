@@ -132,9 +132,19 @@ def pusher_authentication():
     channel_name = request.form.get('channel_name')
     socket_id = request.form.get('socket_id')
 
+    username = get_jwt_identity()
+
+    user_data = User.query.filter_by(username=username).first()
+
     auth = pusher.authenticate(
         channel=channel_name,
-        socket_id=socket_id
+        socket_id=socket_id,
+        custom_data={
+            "user_id": user_data.id,
+            "user_info": {
+                "username": user_data.username
+            }
+        }
     )
 
     return jsonify(auth)
@@ -197,8 +207,9 @@ def user_messages(channel_id):
 
 
 def getSentiment(message):
-        text = TextBlob(message)
-        return {'polarity': text.polarity}
+    text = TextBlob(message)
+    return {'polarity': text.polarity}
+
 
 # run Flask app
 if __name__ == "__main__":

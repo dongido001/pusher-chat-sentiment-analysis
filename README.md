@@ -1,6 +1,6 @@
-# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 3
+# One-to-one private chat with sentiment analysis using Pusher Channels, Flask and Vue.js - Part 4
 
-This is the part 3 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
+This is the part 4 of the tutorial series demonstrating how to build a chat app with sentiment analysis using Pusher Channels, Flask and Vue.js. You can read the tutorial on how it was built [here]()
 
 ## Getting Started
 

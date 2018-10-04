@@ -127,6 +127,38 @@ export default {
           });
         }
       });
+
+      var presenceChannel = pusher.subscribe("presence-chitchat");
+
+      presenceChannel.bind("pusher:member_added", data => {
+        // Get the index of user that just scubscribed
+        const index = this.users.findIndex(user => user.id == data.id);
+
+        // Set the is_online status of the user to true
+        this.$set(this.users, index, { ...this.users[index], is_online: true });
+      });
+
+      presenceChannel.bind("pusher:member_removed", data => {
+        // Get the index of user that just subscribed
+        const index = this.users.findIndex(user => user.id == data.id);
+
+        // Set the is_online status of the user to false
+        this.$set(this.users, index, {
+          ...this.users[index],
+          is_online: false
+        });
+      });
+
+      presenceChannel.bind("pusher:subscription_succeeded", data => {
+        // Fetch members already on this channel, then set them to be online
+        for (let member_id of Object.keys(data.members)) {
+          const index = this.users.findIndex(user => user.id == member_id);
+          this.$set(this.users, index, {
+            ...this.users[index],
+            is_online: true
+          });
+        }
+      });
     },
     getMessage: function(channel_name) {
       this.axios
