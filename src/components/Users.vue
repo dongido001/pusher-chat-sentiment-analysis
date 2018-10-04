@@ -5,8 +5,8 @@
         v-bind:class="[activeUser == user.id ? 'user active' : 'user']"
         v-on:click="chat(user.id)"
       >
-        <span v-if="user.has_new_message" class="has_new_message">New message</span>
         {{user.userName}}
+        <span v-if="user.has_new_message" class="has_new_message">New message</span>
       </div>
     </div>
   </div>
