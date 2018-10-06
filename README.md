@@ -42,7 +42,7 @@ Then, update the `.env` file in the project’s root folder with your correct Pu
 
 #### Run the Flask app
 
-- CD to the Flask folder - api:
+- Using your terminal, navigate into the Flask folder - `api`:
 
 ```
     $ cd api
@@ -86,7 +86,7 @@ Check the URL where Flask is running - [http://localhost:5000](http://localhost:
 
 #### Run the Vue app
 
-Open a new terminal window, then cd into the projects root folder - `one-to-one chat`:
+Open a new terminal window, then navigate into the projects root folder - `one-to-one chat`:
 
 Install dependencies:
 
