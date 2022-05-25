@@ -16,7 +16,7 @@ nltk==3.3
 pusher==2.0.1
 pyasn1==0.4.4
 pycparser==2.19
-PyJWT==1.6.4
+PyJWT==2.4.0
 pyOpenSSL==18.0.0
 python-dotenv==0.8.2
 requests==2.19.1
